@@ -1,4 +1,6 @@
 name: headrenewer
 version: "1.0-SNAPSHOT"
 author: Chilly_Willy
-main: me.chillywilly.MyPlugin
+main: me.chillywilly.HeadRenewer
+api-version: 1.20
+prefix: HeadRenewer
