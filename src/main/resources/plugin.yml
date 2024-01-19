@@ -1,8 +1,8 @@
 name: HeadRenewer
-version: "1.0-SNAPSHOT"
+version: "1.0"
 author: Chilly_Willy
 main: me.chillywilly.HeadRenewer
-api-version: 1.20
+api-version: '1.20'
 prefix: HeadRenewer
 
 commands:
