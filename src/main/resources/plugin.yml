@@ -1,6 +1,10 @@
-name: headrenewer
+name: HeadRenewer
 version: "1.0-SNAPSHOT"
 author: Chilly_Willy
 main: me.chillywilly.HeadRenewer
 api-version: 1.20
 prefix: HeadRenewer
+
+commands:
+  renewhead:
+    aliases: renew
