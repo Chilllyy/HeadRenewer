@@ -7,4 +7,5 @@ prefix: HeadRenewer
 
 commands:
   renewhead:
-    aliases: renew
+    permission: headrenewer.renew
+    aliases: [updatehead]
