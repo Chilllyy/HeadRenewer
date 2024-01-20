@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.UUID;
 
 import org.bukkit.Material;
-import org.bukkit.Server;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -67,9 +67,17 @@ public class HeadRenewer extends JavaPlugin implements CommandExecutor {
                 SkullMeta newSkullMeta = (SkullMeta)oldSkull.getItemMeta(); //also put item meta on new skull (for item name and lore)
 
                 PlayerProfile oldProfile = oldSkullMeta.getOwnerProfile(); //get owner profile from the old skull (used to store the skin)
-
-                String skullPlayerName = oldProfile.getName(); //get name from the profile
+                
                 UUID skullPlayerUUID = oldProfile.getUniqueId(); //get UUID from the profile
+
+                OfflinePlayer skullOwner = this.getServer().getOfflinePlayer(skullPlayerUUID); //Get Player Via UUID
+
+                if (!skullOwner.hasPlayedBefore()) { // check if player has played before (causes issues)
+                    player.sendMessage(getMessage("has_not_joined", true)); // send error message
+                    return true;
+                }
+
+                String skullPlayerName = this.getServer().getOfflinePlayer(skullPlayerUUID).getName(); //get name from stored player file
 
                 PlayerProfile newProfile = this.getServer().createPlayerProfile(skullPlayerUUID, skullPlayerName); //create a new profile for the name and UUID (grabs new skin from mojang)
 
